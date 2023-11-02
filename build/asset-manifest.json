@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cbc53590.css",
+    "main.js": "/static/js/main.8cd6c083.js",
+    "static/media/logo-barato.png": "/static/media/logo-barato.b2e4163c0680a182c7ba.png",
+    "index.html": "/index.html",
+    "main.cbc53590.css.map": "/static/css/main.cbc53590.css.map",
+    "main.8cd6c083.js.map": "/static/js/main.8cd6c083.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbc53590.css",
+    "static/js/main.8cd6c083.js"
+  ]
+}
