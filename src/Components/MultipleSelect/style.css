@@ -1,0 +1,67 @@
+.multi-input {
+  border: 1px solid #ccc;
+  width: 90%;
+  min-height: 35px;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  outline: none;
+  cursor: text;
+}
+
+.suggestbox {
+  width: 90%;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.suggestbox ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestbox ul li button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  text-align: left;
+  padding: 5px;
+  cursor: pointer;
+  margin: 1px 0;
+}
+
+.suggestbox ul li button:hover {
+  background-color: #f8f8f8;
+}
+
+.item {
+  background-color: #cdfcdf;
+  padding: 3px;
+  font-size: 12px;
+  margin: 2px;
+  white-space: nowrapq;
+}
+
+.close {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.active-item {
+  background-color: #cdfcdf !important;
+}
+
+.multi-input input {
+  border: none;
+  outline: none;
+  min-width: 50px;
+}
