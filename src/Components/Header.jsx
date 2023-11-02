@@ -2,8 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
+import Logo from "../logo-barato.png";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand>
           <Link className="nav-link" to="/">
-            Blog
+            <img src={Logo} width={200} alt="" />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
