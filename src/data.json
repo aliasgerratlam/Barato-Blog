@@ -5,11 +5,7 @@
       "title": "His mother had always taught himas",
       "body": "<p>His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.</p>",
       "userId": 1698909201090,
-      "tags": [
-        "history",
-        "american",
-        "crime"
-      ],
+      "tags": ["history", "american", "crime"],
       "reactions": 0,
       "image": "https://images.unsplash.com/photo-1682687982093-4773cb0dbc2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       "created_at": 1691173800000,
@@ -20,11 +16,7 @@
       "title": "He was an expert but not in a discipline",
       "body": "He was an expert but not in a discipline that anyone could fully appreciate. He knew how to hold the cone just right so that the soft server ice-cream fell into it at the precise angle to form a perfect cone each and every time. It had taken years to perfect and he could now do it without even putting any thought behind it.",
       "userId": 13,
-      "tags": [
-        "french",
-        "fiction",
-        "english"
-      ],
+      "tags": ["french", "fiction", "english"],
       "reactions": 2,
       "image": "https://images.unsplash.com/photo-1692057431894-8d6516b21688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       "created_at": 1691778600000,
@@ -35,12 +27,7 @@
       "title": "Hopes and dreams were dashed that day.",
       "body": "<p>Hopes and dreams were dashed that day. It should have been expected, but it still came as a shock. The warning signs had been ignored in favor of the possibility, however remote, that it could actually happen. That possibility had grown from hope to an undeniable belief it must be destiny. That was until it wasn't and the hopes and dreams came crashing down.</p>",
       "userId": 1698906943172,
-      "tags": [
-        "crime",
-        "mystery",
-        "love",
-        "dfafadf"
-      ],
+      "tags": ["crime", "mystery", "love", "dfafadf"],
       "reactions": 0,
       "image": "https://images.unsplash.com/photo-1692060234392-aa41b4703065?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
       "created_at": 1697740200000,
@@ -49,12 +36,7 @@
     {
       "title": "Test title",
       "body": "<h1 id=\"dcc5\" class=\"mi mj ev be mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf bj\" data-selectable-paragraph=\"\"><strong class=\"al\">Introduction</strong></h1>\n<p id=\"ac0c\" class=\"pw-post-body-paragraph kn ko ev kp b kq ng ks kt ku nh kw kx ky ni la lb lc nj le lf lg nk li lj lk eo bj\" data-selectable-paragraph=\"\">Have you ever thought of uploading images directly to the cloud using a React app but were not able to find a good solution? Whoopee, you have landed in the right place. This tutorial has got you covered. In this tutorial, we&rsquo;ll be showing a step-by-step process of uploading images to Cloudinary as well as deleting the images from Cloudinary using a React App.</p>\n<h1 id=\"66b4\" class=\"mi mj ev be mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf bj\" data-selectable-paragraph=\"\"><strong class=\"al\">Now, what is Cloudinary?</strong></h1>\n<p id=\"72f6\" class=\"pw-post-body-paragraph kn ko ev kp b kq ng ks kt ku nh kw kx ky ni la lb lc nj le lf lg nk li lj lk eo bj\" data-selectable-paragraph=\"\">Cloudinary provides cloud-based image and video management services. It enables users to upload, store, manage, manipulate, and deliver images and video for websites and apps. We will be using Cloudinary to store, retrieve and delete our images.</p>\n<h2 id=\"921f\" class=\"nl mj ev be mk nm nn no mo np nq nr ms ky ns nt nu lc nv nw nx lg ny nz oa ob bj\" data-selectable-paragraph=\"\">Before proceeding further, make sure you check all the prerequisites to gain better insights:</h2>\n<ul class=\"\">\n<li id=\"fa07\" class=\"kn ko ev kp b kq ng ks kt ku nh kw kx ky oc la lb lc od le lf lg oe li lj lk of og oh bj\" data-selectable-paragraph=\"\">Basics of JavaScript</li>\n<li id=\"8946\" class=\"kn ko ev kp b kq oi ks kt ku oj kw kx ky ok la lb lc ol le lf lg om li lj lk of og oh bj\" data-selectable-paragraph=\"\">Basics of React</li>\n<li id=\"39e6\" class=\"kn ko ev kp b kq oi ks kt ku oj kw kx ky ok la lb lc ol le lf lg om li lj lk of og oh bj\" data-selectable-paragraph=\"\">Understanding of APIs</li>\n</ul>",
-      "tags": [
-        "american",
-        "crime",
-        "testtttt",
-        "fd"
-      ],
+      "tags": ["american", "crime", "testtttt", "fd"],
       "reactions": 0,
       "image": "https://res.cloudinary.com/dhioo5inz/image/upload/v1698668263/ak2z2ivaiiv9cu6q1gog.jpg",
       "created_at": 1698668254182,

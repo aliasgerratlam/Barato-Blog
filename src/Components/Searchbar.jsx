@@ -1,34 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
 import { usePost } from "../context/postContext";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { FiSearch } from "react-icons/fi";
 
 const Searchbar = () => {
   const { data, originalData, dispatch } = usePost();
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    if (search) {
-      const searchPost =
-        search.length > 1
-          ? data.filter((product) =>
-              `${product.title}`.toLowerCase().includes(search.toLowerCase())
-            )
-          : originalData;
+    let searchPost = [];
+    if (search.length > 0) {
+      console.log("search", search.length > 0);
+      searchPost = data.filter((product) =>
+        `${product.title}`.toLowerCase().includes(search.toLowerCase())
+      );
+      dispatch({ type: "Search", payload: searchPost });
+    } else {
+      searchPost = originalData;
       dispatch({ type: "Search", payload: searchPost });
     }
-  }, [search]);
+  }, [search, originalData]);
 
   return (
-    <Form className="mb-3">
-      <Form.Group className="mb-3">
-        <Form.Control
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search"
-        />
-      </Form.Group>
-    </Form>
+    <InputGroup mb={50}>
+      <InputLeftElement pointerEvents="none">
+        <FiSearch />
+      </InputLeftElement>
+      <Input
+        bg="white"
+        type="search"
+        borderRadius="3xl"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search"
+        size="lg"
+      />
+    </InputGroup>
   );
 };
 

@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Box, ChakraBaseProvider } from "@chakra-ui/react";
+import { theme } from "@chakra-ui/theme";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -14,20 +16,22 @@ import { PostProvider } from "./context/postContext";
 
 function App() {
   return (
-    <div className="App">
-      <ToastContainer theme="colored" />
-      <Header />
-      <PostProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add-post" element={<Add />} />
-          <Route path="/blog/:id" element={<SinglePost />} />
-          <Route path="/edit" element={<EditPost />} />
-        </Routes>
-      </PostProvider>
+    <ChakraBaseProvider theme={theme}>
+      <Box className="App">
+        <ToastContainer theme="colored" />
+        <Header />
+        <PostProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/add" element={<Add />} />
+            <Route path="/blog/:id" element={<SinglePost />} />
+            <Route path="/edit" element={<EditPost />} />
+          </Routes>
+        </PostProvider>
 
-      <Footer />
-    </div>
+        <Footer />
+      </Box>
+    </ChakraBaseProvider>
   );
 }
 

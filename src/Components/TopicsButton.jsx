@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { usePost } from "../context/postContext";
+import { Box, Button, ButtonGroup, Heading } from "@chakra-ui/react";
 
 const TopicsButton = () => {
   const { data, dispatch, active } = usePost();
@@ -15,31 +15,33 @@ const TopicsButton = () => {
   };
 
   return (
-    <div className="tags mb-5 text-start">
-      <h5>
+    <>
+      <Heading mb={30}>
         Search by Topics{" "}
         <Button
           size="sm"
           className={`border-0 ${!active && "disabled"}`}
           variant="transparent"
-          disabled={!active.length}
+          isDisabled={!active.length}
           onClick={handleClear}
         >
           Clear all
         </Button>
-      </h5>
-      {topics.map((topic) => (
-        <Button
-          key={topic}
-          variant={active.includes(topic) ? `primary` : "outline-primary"}
-          disabled={!data.some((nav) => nav.tags.includes(topic))}
-          className="me-2"
-          onClick={() => handleTopic(topic)}
-        >
-          {topic}
-        </Button>
-      ))}
-    </div>
+      </Heading>
+      <ButtonGroup>
+        {topics.map((topic) => (
+          <Button
+            key={topic}
+            colorScheme="teal"
+            variant={active.includes(topic) ? `solid` : "outline"}
+            isDisabled={!data.some((nav) => nav.tags.includes(topic))}
+            onClick={() => handleTopic(topic)}
+          >
+            {topic.charAt(0).toUpperCase() + topic.slice(1).toLowerCase()}
+          </Button>
+        ))}
+      </ButtonGroup>
+    </>
   );
 };
 

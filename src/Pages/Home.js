@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Container } from "react-bootstrap";
 import Searchbar from "../Components/Searchbar";
 import TopicsButton from "../Components/TopicsButton";
 import BlogGrid from "../Components/BlogGrid";
 import { useLocation, useNavigate } from "react-router";
 import { usePost } from "../context/postContext";
+import { Box, Container } from "@chakra-ui/react";
 
 const Home = () => {
   const location = useLocation();
@@ -17,13 +17,23 @@ const Home = () => {
   }, [location.state && location.state.refresh]);
 
   return (
-    <div className="home my-5">
-      <Container>
-        <Searchbar />
-        <TopicsButton />
+    <Box my="5" className="home">
+      <Container maxW="container.xl">
+        <Box
+          p={10}
+          borderRadius="3xl"
+          bg={"teal.100"}
+          textAlign={"center"}
+          className="tags"
+          my={50}
+          boxShadow="inner"
+        >
+          <Searchbar />
+          <TopicsButton />
+        </Box>
         <BlogGrid data={data} />
       </Container>
-    </div>
+    </Box>
   );
 };
 
