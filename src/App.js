@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Box, ChakraBaseProvider } from "@chakra-ui/react";
+import { Box, ChakraBaseProvider, useColorModeValue } from "@chakra-ui/react";
 import { theme } from "@chakra-ui/theme";
 
 import Header from "./Components/Header";
@@ -17,7 +17,7 @@ import { PostProvider } from "./context/postContext";
 function App() {
   return (
     <ChakraBaseProvider theme={theme}>
-      <Box className="App">
+      <Box className="App" bg={useColorModeValue("gray.300", "gray.900")}>
         <ToastContainer theme="colored" />
         <Header />
         <PostProvider>

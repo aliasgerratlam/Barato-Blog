@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.css";
+import { Box, FormLabel } from "@chakra-ui/react";
 
 export default function MultipleSelect({
   label,
@@ -62,10 +63,13 @@ export default function MultipleSelect({
   // console.log("selectedBox", selectedBox);
   return (
     <div className={className}>
-      <label>{label}</label>
-      <br />
-      <div className="dropdown">
-        <div className="multi-input" onClick={() => inputRef.current.focus()}>
+      <FormLabel>{label}</FormLabel>
+      <Box className="dropdown">
+        <Box
+          bg={"white"}
+          className="multi-input"
+          onClick={() => inputRef.current.focus()}
+        >
           {selectedBox.length !== 0 && (
             <span className="select-items">
               {selectedBox.map((item, i) => (
@@ -98,7 +102,7 @@ export default function MultipleSelect({
             onFocus={() => setShowBox(true)}
             onChange={(e) => setInputData(e.target.value)}
           />
-        </div>
+        </Box>
 
         {showBox && (
           <div className="suggestbox">
@@ -123,7 +127,7 @@ export default function MultipleSelect({
             </ul>
           </div>
         )}
-      </div>
+      </Box>
     </div>
   );
 }

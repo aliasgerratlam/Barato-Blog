@@ -12,7 +12,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      bg={useColorModeValue("whiteAplha.100", "whiteAlpha.100")}
       rounded={"full"}
       w={8}
       h={8}
@@ -36,8 +36,8 @@ const SocialButton = ({ children, label, href }) => {
 export default function SmallWithSocial() {
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      bg={useColorModeValue("gray.700", "black")}
+      color={useColorModeValue("gray.100", "gray.200")}
     >
       <Container
         as={Stack}
@@ -51,7 +51,7 @@ export default function SmallWithSocial() {
         <Text
           as="p"
           marginBottom={0}
-          color={useColorModeValue("gray.700", "gray.200")}
+          color={useColorModeValue("gray.300", "gray.200")}
           fontSize="sm"
           m={0}
         >

@@ -15,6 +15,7 @@ import {
   Image,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { MdKeyboardBackspace } from "react-icons/md";
 
@@ -44,68 +45,75 @@ const SinglePost = () => {
 
   if (isLoading) return <div className="loading">Loading...</div>;
   return (
-    <Container maxW="container.xl">
-      <div className=" text-end">
-        <ButtonGroup my="5">
-          <Button
-            leftIcon={<MdKeyboardBackspace />}
-            colorScheme="teal"
-            variant="ghost"
-            onClick={() => navigate(-1)}
-          >
-            Back to Home
-          </Button>
+    <Box as="main">
+      <Container maxW="container.xl">
+        <div className=" text-end">
+          <ButtonGroup my="5">
+            <Button
+              leftIcon={<MdKeyboardBackspace />}
+              colorScheme="teal"
+              variant="ghost"
+              onClick={() => navigate(-1)}
+            >
+              Back to Home
+            </Button>
 
-          <Button
-            variant="solid"
-            colorScheme="whatsapp"
-            onClick={() => navigate(`/edit?id=${id}`)}
-          >
-            <MdModeEditOutline /> Edit
-          </Button>
-          <Button
-            variant="solid"
-            colorScheme="red"
-            onClick={() => handleDelete(id)}
-          >
-            <MdDelete /> Delete
-          </Button>
-        </ButtonGroup>
-      </div>
-      <Box textAlign="left">
-        <Heading fontWeight="700" as="h1" fontSize="5xl">
-          {title}
-        </Heading>
-        <HStack mb="10" mt="3" gap="50px" align="center">
-          <Text as="small" fontWeight="600" color="gray.500">
-            Published: {dateFormat(created_at, "mmmm dS, yyyy")}
-          </Text>
-          <Stack direction="row">
-            {tags?.map((tag, i) => (
-              <Badge colorScheme="green" key={i}>
-                {tag}
-              </Badge>
-            ))}
-          </Stack>
-        </HStack>
-      </Box>
-      <Box>
-        <Image
-          src={image}
-          maxW="full"
-          alt={title}
-          className="my-4"
-          objectFit="cover"
-          minW={"100%"}
-          height="600px"
-          objectPosition={"center"}
-          borderRadius="3xl"
-        />
-      </Box>
-      <Box dangerouslySetInnerHTML={{ __html: body }} textAlign="start"></Box>
+            <Button
+              variant="solid"
+              colorScheme="whatsapp"
+              onClick={() => navigate(`/edit?id=${id}`)}
+            >
+              <MdModeEditOutline /> Edit
+            </Button>
+            <Button
+              variant="solid"
+              colorScheme="red"
+              onClick={() => handleDelete(id)}
+            >
+              <MdDelete /> Delete
+            </Button>
+          </ButtonGroup>
+        </div>
+        <Box bg={"whiteAlpha.600"} p={30} borderRadius={30}>
+          <Box textAlign="left">
+            <Heading fontWeight="700" as="h1" fontSize="5xl">
+              {title}
+            </Heading>
+            <HStack mb="10" mt="3" gap="50px" align="center">
+              <Text as="small" fontWeight="600" color="gray.500">
+                Published: {dateFormat(created_at, "mmmm dS, yyyy")}
+              </Text>
+              <Stack direction="row">
+                {tags?.map((tag, i) => (
+                  <Badge colorScheme="green" key={i}>
+                    {tag}
+                  </Badge>
+                ))}
+              </Stack>
+            </HStack>
+          </Box>
+          <Box>
+            <Image
+              src={image}
+              maxW="full"
+              alt={title}
+              className="my-4"
+              objectFit="cover"
+              minW={"100%"}
+              height="600px"
+              objectPosition={"center"}
+              borderRadius="3xl"
+            />
+          </Box>
+          <Box
+            dangerouslySetInnerHTML={{ __html: body }}
+            textAlign="start"
+          ></Box>
+        </Box>
 
-      {!!recent.length && <RelatedPost recent={recent} />}
-    </Container>
+        {!!recent.length && <RelatedPost recent={recent} />}
+      </Container>
+    </Box>
   );
 };
 

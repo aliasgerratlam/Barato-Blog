@@ -1,11 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Alert, Button, Container, Form } from "react-bootstrap";
+import React, { useRef, useState } from "react";
 import MultipleSelect from "../Components/MultipleSelect/MultipleSelect";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { Editor } from "@tinymce/tinymce-react";
 import "react-datepicker/dist/react-datepicker.css";
 import { usePost } from "../context/postContext";
+import {
+  Alert,
+  Box,
+  Button,
+  Container,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Heading,
+  Input,
+} from "@chakra-ui/react";
 
 const Add = () => {
   const { topics, loading, sendData } = usePost();
@@ -99,82 +109,107 @@ const Add = () => {
 
   if (loading && !topics.length) return <h1>Loading...</h1>;
   return (
-    <div className="add-page">
-      <Container className="my-5">
-        <Alert variant="warning">
-          <Alert.Heading>Share Your Thoughts: Add a Post</Alert.Heading>
+    <Box as="main" className="add-page">
+      <Container maxW="container.xl" my="5">
+        <Alert
+          status="warning"
+          p="8"
+          borderRadius="15"
+          justifyContent="center"
+          shadow="inner"
+        >
+          <Heading color="gray.700" fontSize={30}>
+            Share Your Thoughts
+          </Heading>
         </Alert>
 
-        <div className="add-form-post">
-          <Form className="text-start" onSubmit={(e) => e.preventDefault()}>
-            <div className="my-4">
-              <label className="form-label">Upload Featured Image: </label>
-              <input type="file" onChange={handleImageUpload} />
-            </div>
+        <Box bg="whiteAlpha.800" p="10" borderRadius={30} my="5">
+          <div className="add-form-post">
+            <form className="text-start" onSubmit={(e) => e.preventDefault()}>
+              <div className="my-4">
+                <FormLabel className="form-label">
+                  Upload Featured Image:{" "}
+                </FormLabel>
+                <input type="file" onChange={handleImageUpload} />
+              </div>
 
-            <Form.Group className="mb-3">
-              <Form.Label>What is your title thought?</Form.Label>
-              <Form.Control
-                type="email"
-                name="title"
-                onChange={handleInputChange}
-                value={formData.title}
+              <FormControl className="mb-3" isInvalid={errors.title}>
+                <FormLabel>Title Thought?</FormLabel>
+                <Input
+                  type="email"
+                  name="title"
+                  onChange={handleInputChange}
+                  value={formData.title}
+                />
+                {console.log("errors.title.length", !formData.title)}
+                {!formData.title && (
+                  <FormErrorMessage>{errors.title}</FormErrorMessage>
+                )}
+              </FormControl>
+
+              <Editor
+                apiKey="qwoakchgxc2p3y5robo3exupv95th4fzb3lhhra0y529v2yt"
+                onInit={(evt, editor) => (editorRef.current = editor)}
+                initialValue="<p>In the moonlit night, whispers of the breeze,
+                Stars weave tales, a celestial spree.
+                Nature's verses unfold with grace,
+                A symphony of night, an eternal embrace.</p>"
+                init={{
+                  height: 500,
+                  menubar: false,
+                  plugins: [
+                    "advlist",
+                    "autolink",
+                    "lists",
+                    "link",
+                    "image",
+                    "charmap",
+                    "preview",
+                    "anchor",
+                    "searchreplace",
+                    "visualblocks",
+                    "code",
+                    "fullscreen",
+                    "insertdatetime",
+                    "media",
+                    "table",
+                    "code",
+                    "help",
+                    "wordcount",
+                  ],
+                  toolbar:
+                    "undo redo | blocks | " +
+                    "bold italic forecolor | alignleft aligncenter " +
+                    "alignright alignjustify | bullist numlist outdent indent | " +
+                    "removeformat | help",
+                  content_style:
+                    "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                }}
               />
-              <span style={{ color: "red" }}>{errors.title}</span>
-            </Form.Group>
 
-            <Editor
-              apiKey="qwoakchgxc2p3y5robo3exupv95th4fzb3lhhra0y529v2yt"
-              onInit={(evt, editor) => (editorRef.current = editor)}
-              initialValue="<p>This is the initial content of the editor.</p>"
-              init={{
-                height: 500,
-                menubar: false,
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "code",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "undo redo | blocks | " +
-                  "bold italic forecolor | alignleft aligncenter " +
-                  "alignright alignjustify | bullist numlist outdent indent | " +
-                  "removeformat | help",
-                content_style:
-                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-              }}
-            />
+              <MultipleSelect
+                label={"Add Tags Multiple here..."}
+                onSelectChange={handleSelectChange}
+                selectValue={select}
+                options={topics}
+                className="my-4"
+              />
 
-            <MultipleSelect
-              label={"Add Tags Multiple here..."}
-              onSelectChange={handleSelectChange}
-              selectValue={select}
-              options={topics}
-              className="my-4"
-            />
-
-            <Button type="button" onClick={handleSubmit} className="w-100 mt-4">
-              Post 😉
-            </Button>
-          </Form>
-        </div>
+              <Button
+                type="button"
+                onClick={handleSubmit}
+                className="w-100 mt-4"
+                variant="solid"
+                size="lg"
+                colorScheme="blue"
+              >
+                Post 😉
+              </Button>
+            </form>
+          </div>
+        </Box>
       </Container>
-    </div>
+    </Box>
   );
 };
 

@@ -23,14 +23,14 @@ const BlogCard = ({ post }) => {
   //     .replace(/[^\w\s]+$/, "");
 
   return (
-    <Card maxW="sm" bg="gray.50">
+    <Card maxW="sm" bg="gray.50" borderRadius={20}>
       <CardBody pb={2}>
         <Image
           h={"250px"}
           w="100%"
           src={post.image}
           alt={post.title}
-          borderRadius="lg"
+          borderRadius="15"
           objectFit={"cover"}
           transform="scale(1.0)"
           transition="0.3s ease-in-out"

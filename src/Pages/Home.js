@@ -22,7 +22,7 @@ const Home = () => {
         <Box
           p={10}
           borderRadius="3xl"
-          bg={"teal.100"}
+          bg={"gray.100"}
           textAlign={"center"}
           className="tags"
           my={50}
