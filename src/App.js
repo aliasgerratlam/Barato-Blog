@@ -13,6 +13,8 @@ import Add from "./Pages/Add";
 import SinglePost from "./Pages/SinglePost";
 import EditPost from "./Pages/Edit";
 import { PostProvider } from "./context/postContext";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/add" element={<Add />} />
             <Route path="/blog/:id" element={<SinglePost />} />
             <Route path="/edit" element={<EditPost />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </PostProvider>
 
