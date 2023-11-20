@@ -15,10 +15,13 @@ import {
   Stack,
   Container,
   Image,
+  Text,
+  useToast,
 } from "@chakra-ui/react";
 // import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import Logo from "../logo-barato.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const NavLink = (props) => {
   const { children } = props;
@@ -42,6 +45,10 @@ const NavLink = (props) => {
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isAuthenticated, logout } = useAuth();
+
+  const navigate = useNavigate();
+  const toast = useToast();
 
   return (
     <>
@@ -75,6 +82,9 @@ const Header = () => {
                   variant={"link"}
                   cursor={"pointer"}
                   minW={0}
+                  onClick={(e) =>
+                    isAuthenticated ? null : navigate("/signin")
+                  }
                 >
                   <Avatar
                     size={"sm"}
@@ -83,13 +93,27 @@ const Header = () => {
                     }
                   />
                 </MenuButton>
-                <MenuList>
-                  <MenuItem>
-                    <Link to={"/add"}>Add Blog</Link>
-                  </MenuItem>
-                  <MenuDivider />
-                  <MenuItem>Sign out</MenuItem>
-                </MenuList>
+                {isAuthenticated ? (
+                  <MenuList>
+                    <MenuItem>
+                      <Link to={"/add"}>Add Blog</Link>
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem
+                      onClick={() => {
+                        logout();
+                        toast({
+                          title: "Sign out successfully!",
+                          status: "error",
+                          duration: 4000,
+                          isClosable: true,
+                        });
+                      }}
+                    >
+                      Sign out
+                    </MenuItem>
+                  </MenuList>
+                ) : null}
               </Menu>
             </Flex>
           </Flex>

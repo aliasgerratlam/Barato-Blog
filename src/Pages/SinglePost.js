@@ -18,9 +18,11 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { MdKeyboardBackspace } from "react-icons/md";
+import { useAuth } from "../context/AuthContext";
 
 const SinglePost = () => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const { id } = useParams();
   const {
     data,
@@ -58,20 +60,24 @@ const SinglePost = () => {
               Back to Home
             </Button>
 
-            <Button
-              variant="solid"
-              colorScheme="whatsapp"
-              onClick={() => navigate(`/edit?id=${id}`)}
-            >
-              <MdModeEditOutline /> Edit
-            </Button>
-            <Button
-              variant="solid"
-              colorScheme="red"
-              onClick={() => handleDelete(id)}
-            >
-              <MdDelete /> Delete
-            </Button>
+            {isAuthenticated && (
+              <>
+                <Button
+                  variant="solid"
+                  colorScheme="whatsapp"
+                  onClick={() => navigate(`/edit?id=${id}`)}
+                >
+                  <MdModeEditOutline /> Edit
+                </Button>
+                <Button
+                  variant="solid"
+                  colorScheme="red"
+                  onClick={() => handleDelete(id)}
+                >
+                  <MdDelete /> Delete
+                </Button>
+              </>
+            )}
           </ButtonGroup>
         </div>
         <Box bg={"whiteAlpha.600"} p={30} borderRadius={30}>

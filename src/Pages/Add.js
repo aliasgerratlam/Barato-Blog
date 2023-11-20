@@ -141,7 +141,6 @@ const Add = () => {
                   onChange={handleInputChange}
                   value={formData.title}
                 />
-                {console.log("errors.title.length", !formData.title)}
                 {!formData.title && (
                   <FormErrorMessage>{errors.title}</FormErrorMessage>
                 )}
